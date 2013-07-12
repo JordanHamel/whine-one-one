@@ -79,11 +79,11 @@ form textarea:focus {
 #whine {
   text-align: center;
   color: rgb(182,52,34);
-  font-size: 40px;
+  font-size: 34px;
   width: 60%;
   display: block;
   margin: auto;
-  height: 250px;
+  height: 220px;
 }
 
 hr {
