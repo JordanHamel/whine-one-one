@@ -1,10 +1,17 @@
-<h1>Pour your heart out without losing any Facebook friends.</h1>
+<div class="header">
+  <div class="logo">
+    <a href="<%= root_path %>"><%= image_tag("ambulance.jpg") %></a>
+  </div>
+  <div class="tagline">
+    Pour your heart out without losing any Facebook friends.
+  </div>
+</div>
 
 <form name="whine" method="post" action="/submit">
-  <textarea name="message" maxlength="300" rows="5" cols="50">
+  <textarea name="message" maxlength="300">
   </textarea>
 
   <br />
 
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" class="button">
 </form>

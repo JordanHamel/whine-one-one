@@ -1,13 +1,72 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: 'Coming Soon', cursive;
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  height: 150px;
+  color: #2b2b2b;
+}
+
+.header .logo {
+  width: 18%;
+  float: left;
+}
+
+.header .logo img {
+  height: 150px;
+}
+
+.header .tagline {
+  margin-top: 25px;
+  font-size: 43px;
+  width: 82%;
+  float: right;
+}
+
+form textarea {
+  color: #2b2b2b;
+  display: block;
+  margin: auto;
+  font-size: 24px;
+  line-height: 36px;
+  border: 8px solid rgb(182,52,34);
+  border-radius: 10px;
+  width: 50%;
+  height: 200px;
+  font-family: 'Coming Soon', cursive;
+}
+
+form textarea:focus {
+  outline-width: 0;
+}
+
+.button {
+  font-family: 'Coming Soon', cursive;
+  display: block;
+  margin: auto;
+  background: #ffffff;
+  padding: 13px 26px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 .5px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 .5px 0;
+  box-shadow: rgba(0,0,0,1) 0 .5px 0;
+  text-shadow: rgba(0,0,0,.4) 0 .5px 0;
+  color: #2b2b2b;
+  font-size: 23px;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.button:hover {
+  color: #5e5e5e;
+  background: #ffffff;
+}
