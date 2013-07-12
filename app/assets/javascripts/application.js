@@ -3,8 +3,8 @@
 //= require_tree .
 
 var getWhine = function() {
-  $.getJSON('http://0.0.0.0:3000/pick_whine.json', function(data) {
-    $('#whine').append('<p>' + data.message + '</p>');
+  $.getJSON('http://localhost:3000/pick_whine.json', function(data) {
+    $('#whine').append(data.message);
   });
 };
 
