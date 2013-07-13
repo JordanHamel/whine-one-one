@@ -16,9 +16,14 @@ body {
   height: 120px;
 }
 
-.header .logo img {
+.header .logo {
   float: left;
   height: 120px;
+}
+
+.header .call {
+  float: right;
+  height: 110px;
 }
 
 /* NEW WHINE PAGE */
