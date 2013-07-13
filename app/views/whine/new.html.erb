@@ -3,9 +3,7 @@
   <a href="/whine"><%= image_tag("call.jpg", :class => "call") %></a>
 </div>
 
-<div class="tagline">
-  Pour your heart out without losing any Facebook friends.
-</div>
+<div class="tagline"><%= @tagline %></div>
 
 <form name="whine" method="post" action="/submit">
   <textarea name="message" maxlength="200">

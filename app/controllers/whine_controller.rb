@@ -4,6 +4,7 @@ class WhineController < ApplicationController
 
   def new
     @whine = Whine.new
+    @tagline = TAGLINES.sample
   end
 
   def create
@@ -18,4 +19,11 @@ class WhineController < ApplicationController
       format.json { render json: @whine }
     end
   end
+
+  TAGLINES = [
+    "Pour your heart out without losing any Facebook friends.",
+    "The wahhmbulance is on it's way.",
+    "Hopefully the internet peoples will listen.",
+    "Whining encouraged.",
+  ]
 end
