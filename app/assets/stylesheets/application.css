@@ -38,6 +38,7 @@ form textarea {
   width: 50%;
   height: 200px;
   font-family: 'Coming Soon', cursive;
+  margin-top: 10px;
 }
 
 form textarea:focus {
@@ -74,7 +75,6 @@ form textarea:focus {
 }
 
 /* LANDING PAGE */
-
 #whine {
   text-align: center;
   color: rgb(182,52,34);
