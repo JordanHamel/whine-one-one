@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710224856) do
+ActiveRecord::Schema.define(:version => 20130714200238) do
+
+  create_table "tags", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "whine_tags", :force => true do |t|
+    t.integer  "whine_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "whines", :force => true do |t|
     t.text     "message"
