@@ -23,7 +23,8 @@ body {
 
 .header .call {
   float: right;
-  height: 110px;
+  height: 103px;
+  margin-right: 10px;
 }
 
 /* NEW WHINE PAGE */
