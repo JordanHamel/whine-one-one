@@ -8,7 +8,26 @@ class WhineController < ApplicationController
   end
 
   def create
-    Whine.create(:message => params[:message])
+    if whine = Whine.create(:message => params[:message])
+      tags = params[:tags].split(',')
+      tags.each do |t|
+        t = t.strip.downcase
+        existing_tag = Tag.where(:text => t)
+        if existing_tag.length == 0
+          tag = Tag.create(:text => t)
+          WhineTag.create(
+            :whine_id => whine.id,
+            :tag_id => tag.id
+          )
+        else
+          WhineTag.create(
+            :whine_id => whine.id,
+            :tag_id => existing_tag.first.id
+          )
+        end
+      end
+    end
+
     redirect_to root_path
   end
 
