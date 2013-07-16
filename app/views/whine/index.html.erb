@@ -1,6 +1,21 @@
-<hr />
-<div id="whine"></div>
+<head>
+  <%= javascript_include_tag "whine" %>
+  <%= javascript_include_tag "keymaster" %>
+</head>
 
-<div id="next">
-  <%= image_tag("arrow-right.jpg") %>
+<div class="eighty">
+  <div id="whine"></div>
+
+  <div id="next">
+    <%= image_tag("arrow-right.jpg") %>
+  </div>
+</div>
+
+<div class="twenty">
+  <div class="trending-header">Trending</div>
+  <div class="trending">
+    <% @trending.each do |t| %>
+    <%= link_to t, "/#{t}" %><br />
+    <% end %>
+  </div>
 </div>

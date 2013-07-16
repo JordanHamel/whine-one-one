@@ -1,0 +1,16 @@
+<head>
+  <%= javascript_include_tag "tag" %>
+  <%= javascript_include_tag "keymaster" %>
+</head>
+
+<% if @tag %>
+<%= @tag.text %>
+<div id="trending-whine" data-tag-name="<%= @tag.text %>">
+</div>
+
+<div id="next-trending-whine">
+  <%= image_tag("arrow-right.jpg") %>
+</div>
+<% else %>
+Sorry, there are no whines tagged with "<%= @text %>"
+<% end %>

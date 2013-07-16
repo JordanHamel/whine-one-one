@@ -1,5 +1,18 @@
 class WhineController < ApplicationController
   def index
+    @trending = []
+    scores = {}
+    WhineTag.order("created_at DESC").limit(1000).each do |wt|
+      if scores[wt.tag_id]
+        scores[wt.tag_id] += 1
+      else
+        scores[wt.tag_id] = 1
+      end
+    end
+    scores = scores.sort_by {|k,v| v}.reverse.first(10)
+    scores.each do |s|
+      @trending << Tag.find(s[0]).text
+    end
   end
 
   def new
@@ -32,7 +45,17 @@ class WhineController < ApplicationController
   end
 
   def pick_whine
-    @whine = Whine.all.sample
+    if params[:tag] == "all"
+      @whine = Whine.all.sample
+    else
+      tag = Tag.where(:text => params[:tag]).first
+      whine_tags = WhineTag.where(:tag_id => tag.id)
+      whines = []
+      whine_tags.each do |wt|
+        whines << Whine.find(wt.whine_id)
+      end
+      @whine = whines.sample
+    end
 
     respond_to do |format|
       format.json { render json: @whine }
