@@ -13,7 +13,7 @@ var clear = function() {
 $(function() {
   tagName = $('#trending-whine').attr('data-tag-name');
   getTrendingWhine();
-  $('#next-trending-whine').click(function() {
+  $('#next').click(function() {
     clear();
     getTrendingWhine();
   });
