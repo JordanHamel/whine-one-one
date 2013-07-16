@@ -25,6 +25,7 @@ class WhineController < ApplicationController
       tags = params[:tags].split(',')
       tags.each do |t|
         t = t.strip.downcase
+        next unless t.match(/^[-_a-z0-9]+$/)
         existing_tag = Tag.where(:text => t)
         if existing_tag.length == 0
           tag = Tag.create(:text => t)

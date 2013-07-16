@@ -3,7 +3,7 @@ class Tag < ActiveRecord::Base
   before_save :downcase
 
   validates_presence_of :text
-  validates_length_of :text, :maximum => 30
+  validates_length_of :text, :maximum => 25
 
   has_many :whine_tags
   has_many :whines, :through => :whine_tags
