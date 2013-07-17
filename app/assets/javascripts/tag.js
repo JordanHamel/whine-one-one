@@ -2,13 +2,6 @@ var i = 0;
 var whines;
 var tagName;
 
-// var getWhines = function() {
-//   $.getJSON('/' + tagName + '/trending.json', function(data) {
-//     console.log(data);
-//     return data;
-//   });
-// };
-
 var nextWhine = function() {
   if (whines[i]) {
     $('#trending-whine').append(whines[i].message);

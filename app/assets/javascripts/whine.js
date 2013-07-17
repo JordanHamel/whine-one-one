@@ -16,6 +16,11 @@ var clear = function() {
 
 $(function() {
   getWhine();
+
+  $(function() {
+    $(".call").addClass("animated tada");
+  });
+
   $('#next').click(function() {
     clear();
     getWhine();
