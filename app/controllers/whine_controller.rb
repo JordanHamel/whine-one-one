@@ -73,5 +73,9 @@ class WhineController < ApplicationController
     "The wahhmbulance is on it's way.",
     "Hopefully the internet peoples will listen.",
     "Whining encouraged.",
+    "So you\'re telling me you had a bad day?",
+    "It couldn\'t get any worse, could it?",
+    "Share a whine, save a live",
+    "Sad to think people will laugh at this, eh?",
   ]
 end
