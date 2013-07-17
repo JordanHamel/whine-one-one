@@ -1,9 +1,21 @@
+var i = 0;
+var whines;
 var tagName;
 
-var getTrendingWhine = function() {
-  $.getJSON('/' + tagName + '/pick_whine.json', function(data) {
-    $('#trending-whine').append(data.message);
-  });
+// var getWhines = function() {
+//   $.getJSON('/' + tagName + '/trending.json', function(data) {
+//     console.log(data);
+//     return data;
+//   });
+// };
+
+var nextWhine = function() {
+  if (whines[i]) {
+    $('#trending-whine').append(whines[i].message);
+    i += 1;
+  } else {
+    $('#trending-whine').append("No more whines :(");
+  }
 };
 
 var clear = function() {
@@ -12,14 +24,20 @@ var clear = function() {
 
 $(function() {
   tagName = $('#trending-whine').attr('data-tag-name');
-  getTrendingWhine();
-  $('#next').click(function() {
-    clear();
-    getTrendingWhine();
-  });
 
-  key('right', function() {
-    clear();
-    getTrendingWhine();
+  $.getJSON('/' + tagName + '/trending.json', function(data) {
+    whines = data;
+  }).success(function() {
+    nextWhine();
+
+    $('#next').click(function() {
+      clear();
+      nextWhine();
+    });
+
+    key('right', function() {
+      clear();
+      nextWhine();
+    });
   });
 });

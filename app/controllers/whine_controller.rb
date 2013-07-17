@@ -48,18 +48,23 @@ class WhineController < ApplicationController
   def pick_whine
     if params[:tag] == "all"
       @whine = Whine.all.sample
-    else
-      tag = Tag.where(:text => params[:tag]).first
-      whine_tags = WhineTag.where(:tag_id => tag.id)
-      whines = []
-      whine_tags.each do |wt|
-        whines << Whine.find(wt.whine_id)
-      end
-      @whine = whines.sample
     end
 
     respond_to do |format|
       format.json { render json: @whine }
+    end
+  end
+
+  def trending_whines
+    tag = Tag.where(:text => params[:tag]).first
+    whine_tags = WhineTag.where(:tag_id => tag.id)
+    @whines = []
+    whine_tags.each do |wt|
+      @whines << Whine.find(wt.whine_id)
+    end
+
+    respond_to do |format|
+      format.json { render json: @whines }
     end
   end
 
