@@ -31,6 +31,18 @@
   margin-bottom: 25px;
 }
 
+#tags {
+  min-height: 20px;
+  width: 60%;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#tags a {
+  color: #7d7d7d;
+}
+
 #next {
   width: 120px;
   display: block;

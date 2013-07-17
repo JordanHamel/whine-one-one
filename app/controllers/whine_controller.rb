@@ -51,7 +51,7 @@ class WhineController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render json: @whine }
+      format.json { render json: { :whine => @whine, :tags => @whine.tags }}
     end
   end
 
