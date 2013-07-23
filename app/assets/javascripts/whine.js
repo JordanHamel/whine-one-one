@@ -1,12 +1,21 @@
-var getWhine = function() {
-  $.getJSON('/all/pick_whine.json', function(data) {
-    $('#whine').append(data['whine'].message);
+var i = 0;
+var whineId;
+var whines;
+var tag;
 
-    for (var i=0; i<data['tags'].length; i++) {
-      var tag = data['tags'][i].text;
-      $('#tags').append("<a href='/" + tag + "'> #" + tag + "</a> ");
-    }
-  });
+var nextWhine = function() {
+  if (whines[i]) {
+    $('#whine').append(whines[i].message);
+    i += 1;
+    $.getJSON('/' + whines[i].id + '/get_tags.json', function(data) {
+      for (var i=0; i<data.length; i++) {
+        tag = data[i].text;
+        $('#tags').append("<a href='/" + tag + "'> #" + tag + "</a> ");
+      };
+    });
+  } else {
+    $('#whine').append("It looks like you've hit the end :(");
+  }
 };
 
 var clear = function() {
@@ -15,19 +24,24 @@ var clear = function() {
 };
 
 $(function() {
-  getWhine();
+  $.getJSON('/whine/all.json', function(data) {
+    whines = data;
+  }).success(function() {
 
-  $(function() {
-    $(".call").addClass("animated tada");
-  });
+    nextWhine();
 
-  $('#next').click(function() {
-    clear();
-    getWhine();
-  });
+    $(function() {
+      $(".call").addClass("animated tada");
+    });
 
-  key('right', function() {
-    clear();
-    getWhine();
+    $('#next').click(function() {
+      clear();
+      nextWhine();
+    });
+
+    key('right', function() {
+      clear();
+      nextWhine();
+    });
   });
 });

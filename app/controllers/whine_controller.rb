@@ -45,13 +45,23 @@ class WhineController < ApplicationController
     redirect_to root_path
   end
 
-  def pick_whine
-    if params[:tag] == "all"
-      @whine = Whine.all.sample
-    end
+  def all_whines
+    @whines = Whine.all
 
     respond_to do |format|
-      format.json { render json: { :whine => @whine, :tags => @whine.tags }}
+      format.json { render json: @whines }
+    end
+  end
+
+  def get_tags
+    if params[:whine]
+      if whine = Whine.find(params[:whine])
+        @tags = whine.tags
+
+        respond_to do |format|
+          format.json { render json: @tags }
+        end
+      end
     end
   end
 
