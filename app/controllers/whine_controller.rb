@@ -46,7 +46,7 @@ class WhineController < ApplicationController
   end
 
   def all_whines
-    @whines = Whine.all
+    @whines = Whine.all.reverse
 
     respond_to do |format|
       format.json { render json: @whines }
